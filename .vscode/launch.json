@@ -1,0 +1,57 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // {
+        //     "name": "Your own server",
+        //     "request": "launch",
+        //     "type": "al",
+        //     "environmentType": "OnPrem",
+        //     "server": "http://bcserver",
+        //     "serverInstance": "BC",
+        //     "authentication": "UserPassword",
+        //     "startupObjectId": 22,
+        //     "startupObjectType": "Page",
+        //     "breakOnError": "All",
+        //     "launchBrowser": true,
+        //     "enableLongRunningSqlStatements": true,
+        //     "enableSqlInformationDebugger": true,
+        //     "tenant": "default",
+        //     "usePublicURLFromServer": true
+        // },
+        {
+            "name": "TJC BC27upg",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "OnPrem",
+            "server": "http://dpcbc.southeastasia.cloudapp.azure.com/",
+            "serverInstance": "BC27_TJC_upg",
+            "authentication": "UserPassword",
+            "startupObjectId": 9303,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "default",
+            "schemaUpdateMode": "ForceSync",
+            // "schemaUpdateMode": "Synchronize",
+            // "schemaUpdateMode": "Recreate", Warning: This will recreate all extension tables and clear its data.
+            "usePublicURLFromServer": true
+        }
+        // ,{
+        //     "name": "TJC test Sandbox",
+        //     "request": "launch",
+        //     "type": "al",
+        //     "tenant": "ac1ea7e5-2074-4dc2-903c-6102b7ca481f",
+        //     "environmentType": "Sandbox",
+        //     //"environmentName": "test",
+        //     "environmentName": "DEV",
+        //     "startupObjectId": 9303,
+        //     "startupObjectType": "Page",
+        //     "breakOnError": "All",
+        //     "launchBrowser": true,
+        //     "enableLongRunningSqlStatements": true,
+        //     "enableSqlInformationDebugger": true
+        // }
+    ]
+}
