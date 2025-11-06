@@ -13,7 +13,7 @@
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "27.0.0.0",
+  "application": "25.0.0.0",
   "idRanges": [
     {
       "from": 50000,
@@ -25,7 +25,7 @@
     "allowDownloadingSource": false,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "16.0",
+  "runtime": "14.0",
   "features": [
     "NoImplicitWith"
   ]

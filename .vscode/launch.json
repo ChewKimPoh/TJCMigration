@@ -53,5 +53,26 @@
         //     "enableLongRunningSqlStatements": true,
         //     "enableSqlInformationDebugger": true
         // }
+        ,
+        {
+            "name": "BC26 GPS sg",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "OnPrem",
+            "server": "http://dpiubc.southeastasia.cloudapp.azure.com",
+            "serverInstance": "BC26_GPS_sg",
+            //"startupCompany": "CRONUS Australia Pty. Ltd.",
+            "authentication": "UserPassword",
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "breakOnError": "All",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "tenant": "default",
+            "usePublicURLFromServer": true,
+            "schemaUpdateMode": "ForceSync"
+            //"schemaUpdateMode": "Synchronize"
+        }
     ]
 }
