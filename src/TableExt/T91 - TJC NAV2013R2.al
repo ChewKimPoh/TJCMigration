@@ -1,0 +1,215 @@
+table 91 "User Setup"
+{
+    Caption = 'User Setup';
+    DrillDownPageID = 119;
+    LookupPageID = 119;
+
+    fields
+    {
+        field(1;"User ID";Code[50])
+        {
+            Caption = 'User ID';
+            NotBlank = true;
+            TableRelation = User."User Name";
+            //This property is currently not supported
+            //TestTableRelation = false;
+            ValidateTableRelation = false;
+
+            trigger OnLookup()
+            var
+                UserMgt: Codeunit "418";
+            begin
+                UserMgt.LookupUserID("User ID");
+            end;
+
+            trigger OnValidate()
+            var
+                UserMgt: Codeunit "418";
+            begin
+                UserMgt.ValidateUserID("User ID");
+            end;
+        }
+        field(2;"Allow Posting From";Date)
+        {
+            Caption = 'Allow Posting From';
+        }
+        field(3;"Allow Posting To";Date)
+        {
+            Caption = 'Allow Posting To';
+        }
+        field(4;"Register Time";Boolean)
+        {
+            Caption = 'Register Time';
+        }
+        field(10;"Salespers./Purch. Code";Code[10])
+        {
+            Caption = 'Salespers./Purch. Code';
+            TableRelation = Salesperson/Purchaser.Code;
+            //This property is currently not supported
+            //TestTableRelation = false;
+            ValidateTableRelation = false;
+
+            trigger OnValidate()
+            var
+                UserSetup: Record "91";
+            begin
+                IF "Salespers./Purch. Code" <> '' THEN BEGIN
+                  UserSetup.SETCURRENTKEY("Salespers./Purch. Code");
+                  UserSetup.SETRANGE("Salespers./Purch. Code","Salespers./Purch. Code");
+                  IF UserSetup.FINDFIRST THEN
+                    ERROR(Text001,"Salespers./Purch. Code",UserSetup."User ID");
+                END;
+            end;
+        }
+        field(11;"Approver ID";Code[50])
+        {
+            Caption = 'Approver ID';
+            TableRelation = "User Setup"."User ID";
+            //This property is currently not supported
+            //TestTableRelation = false;
+            ValidateTableRelation = false;
+        }
+        field(12;"Sales Amount Approval Limit";Integer)
+        {
+            BlankZero = true;
+            Caption = 'Sales Amount Approval Limit';
+
+            trigger OnValidate()
+            begin
+                IF "Unlimited Sales Approval" AND ("Sales Amount Approval Limit" <> 0) THEN
+                  ERROR(Text003,FIELDCAPTION("Sales Amount Approval Limit"),FIELDCAPTION("Unlimited Sales Approval"));
+                IF "Sales Amount Approval Limit" < 0 THEN
+                  ERROR(Text005);
+            end;
+        }
+        field(13;"Purchase Amount Approval Limit";Integer)
+        {
+            BlankZero = true;
+            Caption = 'Purchase Amount Approval Limit';
+
+            trigger OnValidate()
+            begin
+                IF "Unlimited Purchase Approval" AND ("Purchase Amount Approval Limit" <> 0) THEN
+                  ERROR(Text003,FIELDCAPTION("Purchase Amount Approval Limit"),FIELDCAPTION("Unlimited Purchase Approval"));
+                IF "Purchase Amount Approval Limit" < 0 THEN
+                  ERROR(Text005);
+            end;
+        }
+        field(14;"Unlimited Sales Approval";Boolean)
+        {
+            Caption = 'Unlimited Sales Approval';
+
+            trigger OnValidate()
+            begin
+                IF "Unlimited Sales Approval" THEN
+                  "Sales Amount Approval Limit" := 0;
+            end;
+        }
+        field(15;"Unlimited Purchase Approval";Boolean)
+        {
+            Caption = 'Unlimited Purchase Approval';
+
+            trigger OnValidate()
+            begin
+                IF "Unlimited Purchase Approval" THEN
+                  "Purchase Amount Approval Limit" := 0;
+            end;
+        }
+        field(16;Substitute;Code[50])
+        {
+            Caption = 'Substitute';
+            TableRelation = "User Setup";
+        }
+        field(17;"E-Mail";Text[100])
+        {
+            Caption = 'E-Mail';
+            ExtendedDatatype = EMail;
+        }
+        field(19;"Request Amount Approval Limit";Integer)
+        {
+            BlankZero = true;
+            Caption = 'Request Amount Approval Limit';
+
+            trigger OnValidate()
+            begin
+                IF "Unlimited Request Approval" AND ("Request Amount Approval Limit" <> 0) THEN
+                  ERROR(Text003,FIELDCAPTION("Request Amount Approval Limit"),FIELDCAPTION("Unlimited Request Approval"));
+                IF "Request Amount Approval Limit" < 0 THEN
+                  ERROR(Text005);
+            end;
+        }
+        field(20;"Unlimited Request Approval";Boolean)
+        {
+            Caption = 'Unlimited Request Approval';
+
+            trigger OnValidate()
+            begin
+                IF "Unlimited Request Approval" THEN
+                  "Request Amount Approval Limit" := 0;
+            end;
+        }
+        field(950;"Time Sheet Admin.";Boolean)
+        {
+            Caption = 'Time Sheet Admin.';
+        }
+        field(5600;"Allow FA Posting From";Date)
+        {
+            Caption = 'Allow FA Posting From';
+        }
+        field(5601;"Allow FA Posting To";Date)
+        {
+            Caption = 'Allow FA Posting To';
+        }
+        field(5700;"Sales Resp. Ctr. Filter";Code[10])
+        {
+            Caption = 'Sales Resp. Ctr. Filter';
+            TableRelation = "Responsibility Center".Code;
+        }
+        field(5701;"Purchase Resp. Ctr. Filter";Code[10])
+        {
+            Caption = 'Purchase Resp. Ctr. Filter';
+            TableRelation = "Responsibility Center";
+        }
+        field(5900;"Service Resp. Ctr. Filter";Code[10])
+        {
+            Caption = 'Service Resp. Ctr. Filter';
+            TableRelation = "Responsibility Center";
+        }
+        field(50000;"Commission Rate";Decimal)
+        {
+        }
+        field(50001;"Staff Level";Option)
+        {
+            OptionCaption = 'Management,Production,TJC,Sale';
+            OptionMembers = Management,Production,TJC,Sale;
+        }
+        field(50003;"Location Code";Code[10])
+        {
+            Description = 'For Patient System';
+            TableRelation = Location;
+        }
+    }
+
+    keys
+    {
+        key(Key1;"User ID")
+        {
+        }
+        key(Key2;"Salespers./Purch. Code")
+        {
+        }
+        key(Key3;"Staff Level")
+        {
+        }
+    }
+
+    fieldgroups
+    {
+    }
+
+    var
+        Text001: Label 'The %1 Salesperson/Purchaser code is already assigned to another User ID %2.';
+        Text003: Label 'You cannot have both a %1 and %2. ';
+        Text005: Label 'You cannot have approval limits less than zero.';
+}
+

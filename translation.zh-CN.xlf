@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="zh-CN" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Page 3815537654 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PatientNo/NRIC/ EnglishName cannot be empty!</source>
+          <target>Patient No./NRIC No./Englishname cannot be empty!</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Patient Cards. - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Page 3815537654 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create a new Patient Card?</source>
+          <target>Do you want to create a new Patient Card?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Patient Cards. - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Page 3815537654 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No with  NRIC %1 has already existed! </source>
+          <target>&lt;Patient No. with  NRIC %1 has already existed! &gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Patient Cards. - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Page 3815537654 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to use the existing empty patient Card with this NRIC?</source>
+          <target>&lt;Do you want to see the existing Patient List with this NRIC?&gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Patient Cards. - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Page 3815537654 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No  %1 has already existed! </source>
+          <target>&lt;Patient No. with  NRIC %1 has already existed! &gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Patient Cards. - NamedType Text010</note>
+        </trans-unit>
+        <trans-unit id="Table 4066054642 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you really want to delete this Patient Card?</source>
+          <target>Do you really want to delete this Patient Card?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Patient Checkup Info - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Table 4066054642 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PatientNo/NRIC/ EnglishName cannot be empty!</source>
+          <target>Patient No./NRIC No./Englishname cannot be empty!</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Patient Checkup Info - NamedType Text010</note>
+        </trans-unit>
+        <trans-unit id="Table 4066054642 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create a new Patient Card?</source>
+          <target>Do you want to create a new Patient Card?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Patient Checkup Info - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Table 4066054642 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No with  NRIC %1 has already existed! </source>
+          <target>&lt;Patient No. with  NRIC %1 has already existed! &gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Patient Checkup Info - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Table 4066054642 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to use the existing empty patient Card with this NRIC?</source>
+          <target>&lt;Do you want to see the existing Patient List with this NRIC?&gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Patient Checkup Info - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Table 3993128796 - NamedType 612391220" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No with  NRIC %1 has already existed! </source>
+          <target>&lt;Patient No. with  NRIC %1 has already existed! &gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Contact - NamedType Text050</note>
+        </trans-unit>
+        <trans-unit id="Table 3993128796 - NamedType 1250087837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to see the existing Contact List with this NRIC?</source>
+          <target>&lt;Do you want to see the existing Patient List with this NRIC?&gt;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Contact - NamedType Text053</note>
+        </trans-unit>
+        <trans-unit id="Table 3993128796 - NamedType 2356572048" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This Contact card cannot be deleted as at least one patient history entry exists.</source>
+          <target>This Contact card cannot be deleted as at least one patient history entry exists.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Contact - NamedType Text054</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
