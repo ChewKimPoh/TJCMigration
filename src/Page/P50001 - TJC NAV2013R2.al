@@ -11,28 +11,28 @@
 //     {
 //         area(content)
 //         {
-//             field("Start Date";"Start Date")
+//             field("Start Date"; "Start Date")
 //             {
 //             }
-//             field("End Date";"End Date")
+//             field("End Date"; "End Date")
 //             {
 //             }
-//             field(ProdGroupcode;ProdGroupcode)
+//             field(ProdGroupcode; ProdGroupcode)
 //             {
 //             }
-//             field(;'')
+//             field(; '')
 //             {
 //                 CaptionClass = Text003;
 //             }
-//             field(;'')
+//             field(; '')
 //             {
 //                 CaptionClass = Text002;
 //             }
-//             field(;'')
+//             field(; '')
 //             {
 //                 CaptionClass = Text001;
 //             }
-//             field(;'')
+//             field(; '')
 //             {
 //                 CaptionClass = Text000;
 //             }
@@ -52,10 +52,10 @@
 //                 trigger OnAction()
 //                 begin
 //                     IF "Start Date" > "End Date" THEN
-//                       MESSAGE('Start Date cannot be later than End Date')
+//                         MESSAGE('Start Date cannot be later than End Date')
 //                     ELSE BEGIN
-//                       // CreateTable.RetrieveInvoice("Start Date","End Date",ProdGroupcode);   // wrong parameters.
-//                       CreateTable.ExportToExcel();
+//                         // CreateTable.RetrieveInvoice("Start Date","End Date",ProdGroupcode);   // wrong parameters.
+//                         CreateTable.ExportToExcel();
 //                     END;
 
 //                     CurrPage.CLOSE;
@@ -66,12 +66,12 @@
 
 //     trigger OnOpenPage()
 //     begin
-//         ProdGroupcode:='SG';
-//         LastMonth:= DATE2DMY(TODAY,2);
+//         ProdGroupcode := 'SG';
+//         LastMonth := DATE2DMY(TODAY, 2);
 
-//         "Start Date":= DMY2DATE (1,LastMonth,2007);
-//         "End Date":=CALCDATE('+1M',"Start Date");
-//         "End Date":=CALCDATE('-1D',"End Date");
+//         "Start Date" := DMY2DATE(1, LastMonth, 2007);
+//         "End Date" := CALCDATE('+1M', "Start Date");
+//         "End Date" := CALCDATE('-1D', "End Date");
 //     end;
 
 //     var

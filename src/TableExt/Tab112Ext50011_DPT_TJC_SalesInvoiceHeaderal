@@ -1,0 +1,9 @@
+tableextension 50011 "Sales Invoice Header" extends "Sales Invoice Header"
+{
+    fields
+    {
+        field(50001; "No Picking List"; Boolean)
+        {
+        }
+    }
+}

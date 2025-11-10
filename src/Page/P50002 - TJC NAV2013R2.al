@@ -1,50 +1,50 @@
-// page 50002 "Cust Point / Comm Transaction"
-// {
-//     PageType = List;
-//     SourceTable = Table50001;
+page 50002 "Cust Point / Comm Transaction"
+{
+    PageType = List;
+    SourceTable = "Customer Point & Commission";
 
-//     layout
-//     {
-//         area(content)
-//         {
-//             repeater()
-//             {
-//                 field("Entry No";"Entry No")
-//                 {
-//                 }
-//                 field(Adjustment;Adjustment)
-//                 {
-//                 }
-//                 field(Date;Date)
-//                 {
-//                 }
-//                 field(Type;Type)
-//                 {
-//                 }
-//                 field("No.";"No.")
-//                 {
-//                 }
-//                 field(Description;Description)
-//                 {
-//                 }
-//                 field("Customer Points";"Customer Points")
-//                 {
-//                 }
-//                 field("Comm (Paid)";"Comm (Paid)")
-//                 {
-//                 }
-//                 field("Comm (Unpaid)";"Comm (Unpaid)")
-//                 {
-//                 }
-//                 field(Redeemed;Redeemed)
-//                 {
-//                 }
-//             }
-//         }
-//     }
+    layout
+    {
+        area(content)
+        {
+            repeater(control1)
+            {
+                field("Entry No"; Rec."Entry No")
+                {
+                }
+                field(Adjustment; Rec.Adjustment)
+                {
+                }
+                field(Date; Rec.Date)
+                {
+                }
+                field(Type; Rec.Type)
+                {
+                }
+                field("No."; Rec."No.")
+                {
+                }
+                field(Description; Rec.Description)
+                {
+                }
+                field("Customer Points"; Rec."Customer Points")
+                {
+                }
+                field("Comm (Paid)"; Rec."Comm (Paid)")
+                {
+                }
+                field("Comm (Unpaid)"; Rec."Comm (Unpaid)")
+                {
+                }
+                field(Redeemed; Rec.Redeemed)
+                {
+                }
+            }
+        }
+    }
 
-//     actions
-//     {
-//     }
-// }
+    actions
+    {
+    }
+}
 
