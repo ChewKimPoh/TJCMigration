@@ -27,74 +27,74 @@ table 50003 "Patient Checkup Info"
 
     fields
     {
-        field(10;"Contact No.";Code[20])
+        field(10; "Contact No."; Code[20])
         {
             NotBlank = true;
         }
-        field(20;"History No.";Integer)
+        field(20; "History No."; Integer)
         {
             NotBlank = true;
         }
-        field(30;"Visit Date";Date)
+        field(30; "Visit Date"; Date)
         {
             Editable = false;
         }
-        field(40;"Doctor code";Code[20])
+        field(40; "Doctor code"; Code[20])
         {
             Editable = false;
             TableRelation = User;
 
             trigger OnValidate()
             var
-                rUser: Record "2000000120";
-                rUserSetup: Record "91";
+                rUser: Record User;
+                rUserSetup: Record "User Setup";
             begin
                 /*START TJCSG1.00 #1*/
                 rUser.SETRANGE("User Name", "Doctor code");
                 IF rUser.FINDFIRST THEN
-                  "Doctor Name" := rUser."Full Name";
+                    "Doctor Name" := rUser."Full Name";
                 //IF rUser.GET("Doctor code") THEN
                 //  "Doctor Name" := rUser.Name;
                 /*END TJCSG1.00 #1*/
-                
+
                 IF rUserSetup.GET("Doctor code") THEN
-                  "Location Code" := rUserSetup."Location Code";
+                    "Location Code" := rUserSetup."Location Code";
 
             end;
         }
-        field(50;"Doctor Name";Text[30])
+        field(50; "Doctor Name"; Text[30])
         {
             Editable = false;
         }
-        field(55;"Location Code";Code[10])
+        field(55; "Location Code"; Code[10])
         {
-            TableRelation = Location WHERE (Use As In-Transit=CONST(No));
+            TableRelation = Location WHERE("Use As In-Transit" = CONST(false));
         }
-        field(60;Tongue1;Text[30])
+        field(60; Tongue1; Text[30])
         {
             TableRelation = "Tongue 1".Name;
         }
-        field(70;Tongue2;Text[30])
+        field(70; Tongue2; Text[30])
         {
             TableRelation = "Tongue 2".Name;
         }
-        field(80;"Left Pulse";Text[30])
+        field(80; "Left Pulse"; Text[30])
         {
             TableRelation = Pulse.Name;
         }
-        field(85;"Right Pulse";Text[30])
+        field(85; "Right Pulse"; Text[30])
         {
             TableRelation = Pulse.Name;
         }
-        field(110;"Low Blood Pressure";Integer)
+        field(110; "Low Blood Pressure"; Integer)
         {
             Caption = 'Diastolic Pressure šµ³•©‰';
         }
-        field(120;"High Blood Pressure";Integer)
+        field(120; "High Blood Pressure"; Integer)
         {
             Caption = 'Systolic Pressure š³›ã©‰';
         }
-        field(124;"Category No.";Integer)
+        field(124; "Category No."; Integer)
         {
             BlankZero = true;
             NotBlank = true;
@@ -103,56 +103,56 @@ table 50003 "Patient Checkup Info"
             trigger OnValidate()
             begin
                 CALCFIELDS(Category);
-                VALIDATE("Sickness No.",0);
-                VALIDATE("Type No.",0);
+                VALIDATE("Sickness No.", 0);
+                VALIDATE("Type No.", 0);
             end;
         }
-        field(125;Category;Text[10])
+        field(125; Category; Text[10])
         {
-            CalcFormula = Lookup("Sickness Category".Name WHERE (EntryNo=FIELD(Category No.)));
+            CalcFormula = Lookup("Sickness Category".Name WHERE(EntryNo = FIELD("Category No.")));
             FieldClass = FlowField;
         }
-        field(128;"Sickness No.";Integer)
+        field(128; "Sickness No."; Integer)
         {
             BlankZero = true;
             NotBlank = true;
-            TableRelation = Sickness."Sickness EntryNo" WHERE (Category EntryNo=FIELD(Category No.));
+            TableRelation = Sickness."Sickness EntryNo" WHERE("Category EntryNo" = FIELD("Category No."));
 
             trigger OnValidate()
             begin
                 CALCFIELDS(Sickness);
-                VALIDATE("Type No.",0);
+                VALIDATE("Type No.", 0);
             end;
         }
-        field(130;Sickness;Text[50])
+        field(130; Sickness; Text[50])
         {
-            CalcFormula = Lookup(Sickness."Sickness Name" WHERE (Category EntryNo=FIELD(Category No.),
-                                                                 Sickness EntryNo=FIELD(Sickness No.)));
+            CalcFormula = Lookup(Sickness."Sickness Name" WHERE("Category EntryNo" = FIELD("Category No."),
+                                                                 "Sickness EntryNo" = FIELD("Sickness No.")));
             FieldClass = FlowField;
         }
-        field(135;"Type No.";Integer)
+        field(135; "Type No."; Integer)
         {
             BlankZero = true;
             NotBlank = true;
-            TableRelation = "Sickness Type"."Type EntryNo" WHERE (Category EntryNo=FIELD(Category No.),
-                                                                  Sickness EntryNo=FIELD(Sickness No.));
+            TableRelation = "Sickness Type"."Type EntryNo" WHERE("Category EntryNo" = FIELD("Category No."),
+                                                                  "Sickness EntryNo" = FIELD("Sickness No."));
 
             trigger OnValidate()
             begin
-                CALCFIELDS(Sickness,Type);
+                CALCFIELDS(Sickness, Type);
             end;
         }
-        field(140;Type;Text[80])
+        field(140; Type; Text[80])
         {
-            CalcFormula = Lookup("Sickness Type"."Type Name" WHERE (Category EntryNo=FIELD(Category No.),
-                                                                    Sickness EntryNo=FIELD(Sickness No.),
-                                                                    Type EntryNo=FIELD(Type No.)));
+            CalcFormula = Lookup("Sickness Type"."Type Name" WHERE("Category EntryNo" = FIELD("Category No."),
+                                                                    "Sickness EntryNo" = FIELD("Sickness No."),
+                                                                    "Type EntryNo" = FIELD("Type No.")));
             FieldClass = FlowField;
         }
-        field(150;"Diagnosis Info";Text[250])
+        field(150; "Diagnosis Info"; Text[250])
         {
         }
-        field(50000;Status;Option)
+        field(50000; Status; Option)
         {
             OptionMembers = Open,Closed;
         }
@@ -160,17 +160,17 @@ table 50003 "Patient Checkup Info"
 
     keys
     {
-        key(Key1;"Contact No.","History No.")
+        key(Key1; "Contact No.", "History No.")
         {
         }
-        key(Key2;"Visit Date")
+        key(Key2; "Visit Date")
         {
         }
     }
 
     fieldgroups
     {
-        fieldgroup(DropDown;Tongue1)
+        fieldgroup(DropDown; Tongue1)
         {
         }
     }
@@ -178,10 +178,10 @@ table 50003 "Patient Checkup Info"
     trigger OnDelete()
     begin
         IF CONFIRM(Text001) THEN BEGIN
-          Prescription.SETRANGE("Contact No.", "Contact No.");
-          Prescription.SETRANGE("History No.", "History No.");
-          IF Prescription.FINDFIRST THEN
-            Prescription.DELETEALL;
+            Prescription.SETRANGE("Contact No.", "Contact No.");
+            Prescription.SETRANGE("History No.", "History No.");
+            IF Prescription.FINDFIRST THEN
+                Prescription.DELETEALL;
         END;
     end;
 
@@ -205,11 +205,11 @@ table 50003 "Patient Checkup Info"
     var
         pContact: Record "5050";
     begin
-        pContact.SETRANGE("No.","Contact No.");
+        pContact.SETRANGE("No.", "Contact No.");
 
         IF pContact.FIND('-') THEN
-          IF (pContact."No."='') OR (pContact."NRIC No." = '') OR (pContact.Name = '') THEN
-            ERROR(Text010);
+            IF (pContact."No." = '') OR (pContact."NRIC No." = '') OR (pContact.Name = '') THEN
+                ERROR(Text010);
 
         EXIT(TRUE);
     end;
@@ -217,13 +217,13 @@ table 50003 "Patient Checkup Info"
     procedure ViewAction()
     begin
         IF ValidatePatient THEN BEGIN
-          rPatientCheckup.SETRANGE("Contact No.", "Contact No.");
-          rPatientCheckup.SETRANGE("History No.", "History No.");
-          EditCheckupForm.SETTABLEVIEW(rPatientCheckup);
-          //EditCheckupForm.SetEdit(FALSE);
-          EditCheckupForm.EDITABLE(FALSE);
-          EditCheckupForm.RUNMODAL;
-          CLEAR(EditCheckupForm);
+            rPatientCheckup.SETRANGE("Contact No.", "Contact No.");
+            rPatientCheckup.SETRANGE("History No.", "History No.");
+            EditCheckupForm.SETTABLEVIEW(rPatientCheckup);
+            //EditCheckupForm.SetEdit(FALSE);
+            EditCheckupForm.EDITABLE(FALSE);
+            EditCheckupForm.RUNMODAL;
+            CLEAR(EditCheckupForm);
         END;
     end;
 
@@ -231,25 +231,26 @@ table 50003 "Patient Checkup Info"
     begin
         IF ValidatePatient THEN BEGIN
 
-          rPatientCheckup.RESET;   rPatientCheckup.SETRANGE("Contact No.", "Contact No.");
-          rPatientCheckup.SETRANGE("History No.", "History No.");
-          IF NOT rPatientCheckup.FINDSET THEN
-            ERROR(Text009);
+            rPatientCheckup.RESET;
+            rPatientCheckup.SETRANGE("Contact No.", "Contact No.");
+            rPatientCheckup.SETRANGE("History No.", "History No.");
+            IF NOT rPatientCheckup.FINDSET THEN
+                ERROR(Text009);
 
-          SalesSetup.GET;
-          IF NOT SalesSetup."Allow Edit" THEN BEGIN
-            IF TODAY > "Visit Date" THEN
-              ERROR(Text008);
-          END;
+            SalesSetup.GET;
+            IF NOT SalesSetup."Allow Edit" THEN BEGIN
+                IF TODAY > "Visit Date" THEN
+                    ERROR(Text008);
+            END;
 
-          rPatientCheckup.RESET;
-          rPatientCheckup.SETRANGE("Contact No.", "Contact No.");
-          rPatientCheckup.SETRANGE("History No.", "History No.");
+            rPatientCheckup.RESET;
+            rPatientCheckup.SETRANGE("Contact No.", "Contact No.");
+            rPatientCheckup.SETRANGE("History No.", "History No.");
 
-          EditCheckupForm.SETTABLEVIEW(rPatientCheckup);
+            EditCheckupForm.SETTABLEVIEW(rPatientCheckup);
 
-          EditCheckupForm.RUNMODAL;
-          CLEAR(EditCheckupForm);
+            EditCheckupForm.RUNMODAL;
+            CLEAR(EditCheckupForm);
         END;
     end;
 
@@ -261,22 +262,22 @@ table 50003 "Patient Checkup Info"
     begin
         IF ValidatePatient THEN BEGIN
 
-          CheckupInfo.SETRANGE("Contact No.","Contact No.");
-          IF CheckupInfo.FINDLAST THEN
-            NextLineNo := CheckupInfo."History No."
-          ELSE
-            NextLineNo := 0;
+            CheckupInfo.SETRANGE("Contact No.", "Contact No.");
+            IF CheckupInfo.FINDLAST THEN
+                NextLineNo := CheckupInfo."History No."
+            ELSE
+                NextLineNo := 0;
 
-          //CLEAR(NewCheckupForm);
-          //NewCheckupForm.SetNew("Contact No.", NextLineNo);
+            //CLEAR(NewCheckupForm);
+            //NewCheckupForm.SetNew("Contact No.", NextLineNo);
 
-          CheckupInfo.INIT;
-          CheckupInfo."Contact No." := "Contact No.";
-          CheckupInfo."History No." := NextLineNo + 1;
-          CheckupInfo."Visit Date" := TODAY;
-          CheckupInfo.VALIDATE("Doctor code",USERID);
-          CheckupInfo.INSERT;
-          PAGE.RUN(PAGE::"Check Up Card",CheckupInfo);
+            CheckupInfo.INIT;
+            CheckupInfo."Contact No." := "Contact No.";
+            CheckupInfo."History No." := NextLineNo + 1;
+            CheckupInfo."Visit Date" := TODAY;
+            CheckupInfo.VALIDATE("Doctor code", USERID);
+            CheckupInfo.INSERT;
+            PAGE.RUN(PAGE::"Check Up Card", CheckupInfo);
         END;
     end;
 }

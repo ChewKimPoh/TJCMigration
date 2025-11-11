@@ -3,18 +3,18 @@ table 50013 "TJC Web Users"
 
     fields
     {
-        field(1;UserID;Text[30])
+        field(1; UserID; Text[30])
         {
         }
-        field(2;"Full Name";Text[50])
+        field(2; "Full Name"; Text[50])
         {
         }
-        field(3;Password;Text[50])
+        field(3; Password; Text[50])
         {
 
             trigger OnValidate()
             var
-                MD5Hash: Automation ;
+            //MD5Hash: Automation ;
             begin
 
                 //CREATE(MD5Hash);
@@ -25,18 +25,18 @@ table 50013 "TJC Web Users"
                 //Password := Password +'ssss'
             end;
         }
-        field(4;Email;Code[30])
+        field(4; Email; Code[30])
         {
         }
-        field(5;SalesPerson;Code[10])
+        field(5; SalesPerson; Code[10])
         {
-            TableRelation = Salesperson/Purchaser;
+            TableRelation = "Salesperson/Purchaser";
         }
     }
 
     keys
     {
-        key(Key1;UserID)
+        key(Key1; UserID)
         {
         }
     }

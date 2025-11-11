@@ -1,3 +1,6 @@
+// DP.NCM TJC 606 change from 3 to 1
+// force post ship only
+
 // codeunit 81 "Sales-Post (Yes/No)"
 // {
 //     TableNo = 36;

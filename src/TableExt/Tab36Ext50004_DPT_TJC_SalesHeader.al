@@ -52,6 +52,10 @@ tableextension 50004 "Sales Header" extends "Sales Header"
             Editable = false;
             Description = 'NAV2013R2 Localization Customization Relic';
         }
+        field(58100; "Authorization Required"; Boolean)
+        {
+            Description = 'Added into BC as required in XMLport X50001. Compatibility purpose only';
+        }
     }
 }
 

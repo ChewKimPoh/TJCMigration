@@ -1,6 +1,6 @@
 // codeunit 5704 "TransferOrder-Post Shipment"
 // {
-//     // DP.NCM 12/05/2017 TJC #390
+//     // DP.NCM 12/05/2017 TJC 390
 
 //     Permissions = TableData 6507=i;
 //     TableNo = 5740;
