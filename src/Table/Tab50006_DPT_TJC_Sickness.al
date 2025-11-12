@@ -11,45 +11,45 @@ table 50006 Sickness
     //                          to   : Sickness EntryNo,Sickness Name
     //       based on DD #166
 
-    LookupPageID = 50016;
+    LookupPageID = Sickness;
 
     fields
     {
-        field(1;"Category EntryNo";Integer)
+        field(1; "Category EntryNo"; Integer)
         {
             BlankZero = true;
             MinValue = 1;
             NotBlank = true;
             TableRelation = "Sickness Category".EntryNo;
         }
-        field(2;"Sickness EntryNo";Integer)
+        field(2; "Sickness EntryNo"; Integer)
         {
             AutoIncrement = false;
             BlankZero = true;
             MinValue = 1;
             NotBlank = true;
         }
-        field(3;"Sickness Name";Text[50])
+        field(3; "Sickness Name"; Text[50])
         {
         }
-        field(4;Description;Text[50])
+        field(4; Description; Text[50])
         {
         }
     }
 
     keys
     {
-        key(Key1;"Category EntryNo","Sickness EntryNo")
+        key(Key1; "Category EntryNo", "Sickness EntryNo")
         {
         }
-        key(Key2;"Sickness Name")
+        key(Key2; "Sickness Name")
         {
         }
     }
 
     fieldgroups
     {
-        fieldgroup(DropDown;"Sickness EntryNo","Sickness Name")
+        fieldgroup(DropDown; "Sickness EntryNo", "Sickness Name")
         {
         }
     }

@@ -20,19 +20,19 @@ page 50001 "Monthly Commission Report-old"
             field(ProdGroupcode; ProdGroupcode)
             {
             }
-            field(; '')
+            field("Product Group (Incentive)"; '')
             {
                 CaptionClass = Text003;
             }
-            field(; '')
+            field(Text002; '')
             {
                 CaptionClass = Text002;
             }
-            field(; '')
+            field(Text001; '')
             {
                 CaptionClass = Text001;
             }
-            field(; '')
+            field("Monthly Commission  Report"; '')
             {
                 CaptionClass = Text000;
             }
@@ -46,8 +46,8 @@ page 50001 "Monthly Commission Report-old"
             action(Submit)
             {
                 Caption = 'Submit';
-                Promoted = true;
-                PromotedCategory = Process;
+                //Promoted = true;
+                //PromotedCategory = Process;
 
                 trigger OnAction()
                 begin
@@ -77,8 +77,10 @@ page 50001 "Monthly Commission Report-old"
     var
         "Start Date": Date;
         "End Date": Date;
-        CreateTable: Codeunit "50000";
-        ProductGroup: Record "5723";
+        CreateTable: Codeunit CreateTempTable;
+
+        // Note: Product Group is BC discontinued table
+        //ProductGroup: Record "Product Group";
         ProdGroupcode: Code[10];
         LastMonth: Integer;
         "Date Expression": DateFormula;

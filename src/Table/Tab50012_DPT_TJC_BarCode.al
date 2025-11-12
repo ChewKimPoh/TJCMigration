@@ -7,7 +7,7 @@ table 50012 "Bar Code"
 
     fields
     {
-        field(10;"Code";Code[20])
+        field(10; "Code"; Code[20])
         {
             NotBlank = true;
             TableRelation = Item;
@@ -18,25 +18,25 @@ table 50012 "Bar Code"
                 Description := Item.Description;
             end;
         }
-        field(20;Description;Text[30])
+        field(20; Description; Text[30])
         {
         }
-        field(30;"How Many Days";Option)
+        field(30; "How Many Days"; Option)
         {
             OptionCaption = '3,5,7,1';
             OptionMembers = "3","5","7","1";
         }
-        field(40;"Print Medicine Sticker";Boolean)
+        field(40; "Print Medicine Sticker"; Boolean)
         {
         }
-        field(50;"Commission Rate";Decimal)
+        field(50; "Commission Rate"; Decimal)
         {
         }
     }
 
     keys
     {
-        key(Key1;"Code")
+        key(Key1; "Code")
         {
         }
     }
@@ -51,6 +51,6 @@ table 50012 "Bar Code"
     end;
 
     var
-        Item: Record "27";
+        Item: Record Item;
 }
 
